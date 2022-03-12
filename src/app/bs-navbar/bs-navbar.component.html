@@ -13,16 +13,23 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/carrinho">Carrinho</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Cadastrar Eventos</a>
-          </li> -->
+          
+          <!-- <ng-template #anonymousUser>
+            <li  class="nav-item">
+                <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+          </ng-template> -->
+          
           <li ngbDropdown class="nav-item dropdown ">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Usuário</a>
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false"> Admin
+              <!-- {{ usuario$.displayName }} -->
+            </a>
             <ul ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdown03">
               <li><a class="dropdown-item" routerLink="/meus-ingressos">Meus Ingressos</a></li>
               <li><a class="dropdown-item" routerLink="/admin/gerenciar-evento">Gerenciar Eventos</a></li>
               <li><a class="dropdown-item" routerLink="/admin/gerenciar-pedidos">Gerenciar Pedidos</a></li>
-              <li><a class="dropdown-item" >Sair</a></li>
+              <!-- <li><a class="dropdown-item" (click)="logout()" >Sair</a></li> -->
              </ul>
           </li>
         </ul>
@@ -32,3 +39,4 @@
       </div>
     </div>
   </nav>
+  <div class="margem-conteudo"></div>

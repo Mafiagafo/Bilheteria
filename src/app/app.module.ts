@@ -19,6 +19,7 @@ import { AdminGerenciarEventoComponent } from './admin/admin-gerenciar-evento/ad
 import { AdminGerenciarPedidosComponent } from './admin/admin-gerenciar-pedidos/admin-gerenciar-pedidos.component';
 import { PedidoConcluidoComponent } from './pedido-concluido/pedido-concluido.component';
 import { LoginComponent } from './login/login.component';
+import { EventoFormComponent } from './admin/evento-form/evento-form.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     MeusIngressosComponent,
     AdminGerenciarEventoComponent,
     AdminGerenciarPedidosComponent,
-    LoginComponent
+    LoginComponent,
+    EventoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { LoginComponent } from './login/login.component';
       {path: 'login', component: LoginComponent},
       {path: 'admin/gerenciar-evento', component: AdminGerenciarEventoComponent},
       {path: 'admin/gerenciar-pedidos', component: AdminGerenciarPedidosComponent},
+      {path: 'admin/evento/novo', component: EventoFormComponent},
       
     ])
   ],
