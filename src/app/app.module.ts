@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { AdminGerenciarPedidosComponent } from './admin/admin-gerenciar-pedidos/
 import { PedidoConcluidoComponent } from './pedido-concluido/pedido-concluido.component';
 import { LoginComponent } from './login/login.component';
 import { EventoFormComponent } from './admin/evento-form/evento-form.component';
+import { EventoService } from './evento.service';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { EventoFormComponent } from './admin/evento-form/evento-form.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -56,7 +59,9 @@ import { EventoFormComponent } from './admin/evento-form/evento-form.component';
       
     ])
   ],
-  providers: [],
+  providers: [
+    EventoService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

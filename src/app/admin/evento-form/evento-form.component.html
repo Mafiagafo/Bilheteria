@@ -1,30 +1,62 @@
-<form class="form">
-    <div class="from-group">
-        <label for="titulo">Título</label>
-        <input id="titulo" type="text" class="form-control">
+<div class="row">
+    <div class="col-md-6">
+        <form #f="ngForm"(ngSubmit)="save(f.value)" class="form">
+            <div class="from-group">
+                <label for="titulo">Título*</label>
+                <input #titulo="ngModel" ngModel name="titulo" id="titulo" type="text" class="form-control" required>
+                <div class="aler alert-danger" *ngIf="titulo.touched && titulo.invalid">
+                    Título é obrigatório.
+                </div>
+            </div>
+            <div class="from-group">
+                <label  for="descricao">Descrição</label>
+                <textarea #descricao="ngModel" ngModel name="descricao" id="descricao" type="text" maxlength="1000" class="form-control"></textarea>
+            </div>
+            <div class="from-group">
+                <label for="sessao">Sessão*</label>
+                <input #sessao="ngModel" ngModel name="sessao" id="sessao" type="datetime-local" class="form-control" required>
+                <div class="aler alert-danger" *ngIf="sessao.touched && sessao.invalid">
+                    A data da sessao é obrigatória.
+                </div>
+            </div>
+            <div class="from-group">
+                <label for="lotacao">Lotação*</label>
+                <input  #lotacao="ngModel" ngModel name="lotacao" id="lotacao" type="number" class="form-control" required min="1">
+                <div class="aler alert-danger" *ngIf="lotacao.touched && lotacao.invalid">
+                    Lotação é obrigatória e deve ser maior que 0.
+                </div>
+            </div>
+            <div class="from-group">
+                <label for="preco">Preço*</label>
+                <div class="input-group">
+                    <span class="input-group-text"> R$</span>
+                    <input  #preco="ngModel" ngModel name="preco" id="preco" type="number" class="form-control" required min="1">
+                    
+                </div>
+                <div class="aler alert-danger" *ngIf="preco.touched && preco.invalid">
+                    Preço é obrigatório e deve ser maior que 0.
+                </div>
+            </div>
+            <div class="from-group">
+                <label for="imgUrl">URL da Imagem</label>
+                <input #imgUrl="ngModel" ngModel name="imgUrl" id="imgUrl" type="text" class="form-control">
+                
+            </div>
+            <br>
+            <button class="btn btn-primary">Salvar</button>
+        </form>
     </div>
-    <div class="from-group">
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" type="text" maxlength="1000" class="form-control"></textarea>
+    <div class="col-md-6 centralizar">
+        <label for="titulo">Prévia do Evento</label>
+        <div class="card cartao" style="width: 18rem;">
+            <img [src]="imgUrl.value" class="card-img-top" alt="Imagem do Evento">
+            <div class="card-body">
+              <h5 class="card-title"> {{ titulo.value }}</h5>
+              <p class="card-text"> {{ descricao.value}} </p>
+              <p class="card-text"> {{ sessao.value}} </p>
+              <p class="card-text"> <b>{{ preco.value | currency:'BRL':true}} </b></p>
+            </div>
+          </div>
     </div>
-    <div class="from-group">
-        <label for="sessao">Sessão</label>
-        <input id="sessao" type="datetime-local" class="form-control">
-    </div>
-    <div class="from-group">
-        <label for="lotacao">Lotação</label>
-        <input id="lotacao" type="number" class="form-control">
-    </div>
-    <div class="from-group">
-        <label for="preco">Preço</label>
-        <div class="input-group">
-            <span class="input-group-text"> R$</span>
-            <input id="preco" type="number" class="form-control">
-        </div>
-    </div>
-    <div class="from-group">
-        <label for="imgUrl">URL da Imagem</label>
-        <input id="imgUrl" type="text" class="form-control">
-    </div>
-    <button class="btn btn-primary">Salvar</button>
-</form>
+</div>
+
