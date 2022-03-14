@@ -3,10 +3,12 @@
     <div class="card-body">
         <h5 class="card-title"> {{ evento.titulo }}</h5>
         <p class="card-text"> {{ evento.descricao }} </p>
-        <p class="card-text"> {{ evento.sessao}} </p>
         <p class="card-text"> <b>{{ evento.preco | currency:'BRL':true}} </b></p>
-        <button  
+        <!-- <p class="card-text"> {{ evento.sessao}} </p> -->
+        <input type="checkbox" id="chk-sessao" (change)="true" #checkBox> <label class="card-text">&nbsp;  - {{ evento.sessao}}</label>
+        
+        <button *ngIf="checkBox.checked" 
         (click)="addCarrinho(evento)"
-         class="btn btn-primary"> Ver sessões</button>
+         class="btn btn-primary"> Adicionar ao Carrinho</button>
     </div>
 </div> 
