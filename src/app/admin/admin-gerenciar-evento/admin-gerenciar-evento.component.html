@@ -1,1 +1,24 @@
-<a routerLink="/admin/evento/novo" class="btn btn-primary"> Cadastrar novo evento </a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Sessão</th>
+            <th>Lotação</th>
+            <th>Preço</th>
+            <!-- <th>Editar</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of evento_lst$ | async">
+            <td> {{e.titulo }} </td>
+            <td> {{e.sessao }}</td>
+            <td> {{e.lotacao }}</td>
+            <td> {{e.preco }}</td>
+            <!-- <td> <a [routerLink] ="['/admin/evento/', e.$node]"> Editar</a>  </td> -->
+        </tr>
+    </tbody>
+</table>
+
+<p>
+    <a routerLink="/admin/evento/novo" class="btn btn-primary"> Cadastrar novo evento </a>
+</p>

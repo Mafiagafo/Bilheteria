@@ -1,3 +1,4 @@
+import { CarrinhoService } from './carrinho.service';
 import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { PedidoConcluidoComponent } from './pedido-concluido/pedido-concluido.co
 import { LoginComponent } from './login/login.component';
 import { EventoFormComponent } from './admin/evento-form/evento-form.component';
 import { EventoService } from './evento.service';
+import { CardEventoComponent } from './card-evento/card-evento.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { EventoService } from './evento.service';
     AdminGerenciarEventoComponent,
     AdminGerenciarPedidosComponent,
     LoginComponent,
-    EventoFormComponent
+    EventoFormComponent,
+    CardEventoComponent
   ],
   imports: [
     BrowserModule,
@@ -54,13 +57,16 @@ import { EventoService } from './evento.service';
       {path: 'meus-ingressos', component: MeusIngressosComponent},
       {path: 'login', component: LoginComponent},
       {path: 'admin/gerenciar-evento', component: AdminGerenciarEventoComponent},
-      {path: 'admin/gerenciar-pedidos', component: AdminGerenciarPedidosComponent},
+      {path: 'admin/evento/:id', component: EventoFormComponent},
       {path: 'admin/evento/novo', component: EventoFormComponent},
+      {path: 'admin/gerenciar-pedidos', component: AdminGerenciarPedidosComponent},
+      
       
     ])
   ],
   providers: [
     EventoService,
+    CarrinhoService,
   ],
   bootstrap: [AppComponent]
 })

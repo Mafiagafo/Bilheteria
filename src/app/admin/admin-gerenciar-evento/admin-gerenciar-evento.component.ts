@@ -1,3 +1,6 @@
+import { AngularFireList } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
+import { EventoService } from './../../evento.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-gerenciar-evento.component.css']
 })
 export class AdminGerenciarEventoComponent implements OnInit {
+  evento$: AngularFireList<any>;
+  evento_lst$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private eventoService: EventoService) { 
+    this.evento$ = this.eventoService.getAll();
+    this.evento_lst$ =  this.evento$.valueChanges();
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

@@ -1,16 +1,24 @@
 import { EventoComponent } from './evento/evento.component';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class EventoService {
 
   constructor(private db: AngularFireDatabase) { }
   
   create(evento: EventoComponent){
-    this.db.list('/eventos').push(evento)
+    return this.db.list('/evento').push(evento)
+  }
+
+  getAll(){
+    return this.db.list('evento');
+  }
+
+  getEvento(eventoId: any ){
+    return this.db.object('/evento/' + eventoId);
+
   }
 }
 

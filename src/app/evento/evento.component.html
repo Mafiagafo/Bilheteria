@@ -1,1 +1,13 @@
-<p>evento works!</p>
+<div class="row">   
+    <label for="titulo">Lista de Eventos</label>
+        <div *ngFor="let e of evento_lst$ | async"> 
+                <card-evento [evento]="e" > </card-evento>  
+        </div>
+
+</div> 
+
+
+    <div class="col-md-12">
+        
+    </div>    
+

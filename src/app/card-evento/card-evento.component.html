@@ -1,0 +1,12 @@
+<div class="card cartao col-lg-4 col-md-4 col-sm-6">
+    <img [src]="evento.imgUrl" class="card-img-top" alt="Imagem do Evento">
+    <div class="card-body">
+        <h5 class="card-title"> {{ evento.titulo }}</h5>
+        <p class="card-text"> {{ evento.descricao }} </p>
+        <p class="card-text"> {{ evento.sessao}} </p>
+        <p class="card-text"> <b>{{ evento.preco | currency:'BRL':true}} </b></p>
+        <button  
+        (click)="addCarrinho(evento)"
+         class="btn btn-primary"> Ver sessões</button>
+    </div>
+</div> 
