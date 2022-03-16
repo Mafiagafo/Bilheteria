@@ -1,5 +1,5 @@
-<div class="card cartao col-lg-4 col-md-4 col-sm-6">
-    <img [src]="evento.imgUrl" class="card-img-top" alt="Imagem do Evento">
+<div class="card cartao">
+    <img [src]="evento.imgUrl" class="card-img-top banner" alt="Imagem do Evento">
     <div class="card-body">
         <h5 class="card-title"> {{ evento.titulo }}</h5>
         <p class="card-text"> {{ evento.descricao }} </p>
@@ -7,8 +7,12 @@
         <!-- <p class="card-text"> {{ evento.sessao}} </p> -->
         <input type="checkbox" id="chk-sessao" (change)="true" #checkBox> <label class="card-text">&nbsp;  - {{ evento.sessao}}</label>
         
+        
+    </div>
+    <div class="dif card-footer">
         <button *ngIf="checkBox.checked" 
         (click)="addCarrinho(evento)"
-         class="btn btn-primary"> Adicionar ao Carrinho</button>
+         class="btn btn-primary col-md-12"> Adicionar ao Carrinho</button>
+        
     </div>
 </div> 
