@@ -16,7 +16,7 @@ export class CardEventoComponent {
 
   addCarrinho(evento: Evento){
     
-    return this.carrinhoService.Carrinho(evento);
+    this.carrinhoService.addCarrinho(evento);
 
     
   }
